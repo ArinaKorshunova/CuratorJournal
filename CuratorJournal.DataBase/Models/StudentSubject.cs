@@ -31,5 +31,17 @@ namespace CuratorJournal.DataBase.Models
         [ForeignKey("Teacher")]
         public long TeacherId { get; set; }
         #endregion
+        
+        [Display(Name = "Семестр")]
+        #region Teacher
+        public virtual Semester Semester { get; set; }
+
+        [ForeignKey("Semester")]
+        public long SemesterId { get; set; }
+        #endregion
+
+        [Display(Name = "Год")]
+        public string Year { get; set; }
+
     }
 }

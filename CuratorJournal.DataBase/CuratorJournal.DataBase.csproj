@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201610301119171_AddSubjectAndStudentSubject.Designer.cs">
       <DependentUpon>201610301119171_AddSubjectAndStudentSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611041347259_AddSemesters.cs" />
+    <Compile Include="Migrations\201611041347259_AddSemesters.Designer.cs">
+      <DependentUpon>201611041347259_AddSemesters.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\Department.cs" />
@@ -68,6 +72,7 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Qualification.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Semester.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentHabitation.cs" />
     <Compile Include="Models\StudentInformation.cs" />
@@ -93,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610301119171_AddSubjectAndStudentSubject.resx">
       <DependentUpon>201610301119171_AddSubjectAndStudentSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611041347259_AddSemesters.resx">
+      <DependentUpon>201611041347259_AddSemesters.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
