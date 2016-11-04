@@ -10,6 +10,7 @@ namespace CuratorJournal.DataBase.Models
             Configuration.AutoDetectChangesEnabled = false;
             EnumWork.AttachRussianEnums(this);
         }
+        
         public DbSet<Department> Departments { get; set; }
         public DbSet<Direction> Directions { get; set; }
         public DbSet<Gender> Genders { get; set; }
@@ -19,6 +20,7 @@ namespace CuratorJournal.DataBase.Models
         public DbSet<Person> Persons { get; set; }
         public DbSet<Qualification> Qualifications { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Semester> Semesters { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<StudentHabitation> StudentHabitations { get; set; }
         public DbSet<StudentInformation> StudentInformations { get; set; }
@@ -45,6 +47,7 @@ namespace CuratorJournal.DataBase.Models
             modelBuilder.Entity<StudentSubject>().HasRequired(x => x.Student).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<StudentSubject>().HasRequired(x => x.Subject).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<StudentSubject>().HasRequired(x => x.Teacher).WithMany().WillCascadeOnDelete(false);
+            modelBuilder.Entity<StudentSubject>().HasRequired(x => x.Semester).WithMany().WillCascadeOnDelete(false);
         }
         
         public void DetectAndSaveChanges()
