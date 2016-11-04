@@ -1,0 +1,15 @@
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\bin\Debug\CuratorJournal.DataBase.dll.config
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\bin\Debug\CuratorJournal.DataBase.dll
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\bin\Debug\CuratorJournal.DataBase.pdb
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\bin\Debug\CuratorJournal.Logic.dll
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\bin\Debug\EntityFramework.dll
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\bin\Debug\EntityFramework.SqlServer.dll
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\bin\Debug\CuratorJournal.Logic.pdb
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\bin\Debug\EntityFramework.xml
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\bin\Debug\EntityFramework.SqlServer.xml
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\obj\Debug\CuratorJournal.DataBase.csprojResolveAssemblyReference.cache
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\obj\Debug\CuratorJournal.DataBase.Migrations.InitialCreate.resources
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\obj\Debug\CuratorJournal.DataBase.Migrations.AddSubjectAndStudentSubject.resources
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\obj\Debug\CuratorJournal.DataBase.csproj.GenerateResource.Cache
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\obj\Debug\CuratorJournal.DataBase.dll
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.DataBase\obj\Debug\CuratorJournal.DataBase.pdb

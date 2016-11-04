@@ -1,0 +1,10 @@
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.Logic\bin\Debug\CuratorJournal.Logic.dll.config
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.Logic\bin\Debug\CuratorJournal.Logic.dll
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.Logic\bin\Debug\CuratorJournal.Logic.pdb
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.Logic\bin\Debug\EntityFramework.dll
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.Logic\bin\Debug\EntityFramework.SqlServer.dll
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.Logic\bin\Debug\EntityFramework.xml
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.Logic\bin\Debug\EntityFramework.SqlServer.xml
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.Logic\obj\Debug\CuratorJournal.Logic.csprojResolveAssemblyReference.cache
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.Logic\obj\Debug\CuratorJournal.Logic.dll
+E:\Работа\голубков вкр\CuratorJournal\CuratorJournal.Logic\obj\Debug\CuratorJournal.Logic.pdb
