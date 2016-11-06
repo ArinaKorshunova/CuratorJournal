@@ -39,6 +39,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adjunct\System\ComponentModel\Composition\CatalogService.cs" />
+    <Compile Include="adjunct\System\ComponentModel\Composition\ExportFactory.cs" />
+    <Compile Include="adjunct\System\ComponentModel\Composition\ExportLifetimeContext.cs" />
+    <Compile Include="adjunct\System\ComponentModel\Composition\ICatalogService.cs" />
+    <Compile Include="adjunct\System\ComponentModel\Composition\IoC.cs" />
+    <Compile Include="adjunct\System\ComponentModel\Composition\IoCDebugger.cs" />
+    <Compile Include="adjunct\System\ComponentModel\Composition\XapCatalog.cs" />
+    <Compile Include="adjunct\System\ComponentModel\Composition\XapPackage.cs" />
+    <Compile Include="adjunct\System\ComponentModel\Composition\XElementExportProvider.cs" />
+    <Compile Include="adjunct\System\Threading\Lock.cs" />
     <Compile Include="Migrations\201610291341504_InitialCreate.cs" />
     <Compile Include="Migrations\201610291341504_InitialCreate.Designer.cs">
       <DependentUpon>201610291341504_InitialCreate.cs</DependentUpon>
@@ -61,9 +72,30 @@
     <Compile Include="Migrations\201611041347259_AddSemesters.Designer.cs">
       <DependentUpon>201611041347259_AddSemesters.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611061022146_ChangePerson.cs" />
+    <Compile Include="Migrations\201611061022146_ChangePerson.Designer.cs">
+      <DependentUpon>201611061022146_ChangePerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611061128512_MakeHeadDepartmentIdCanBeNull.cs" />
+    <Compile Include="Migrations\201611061128512_MakeHeadDepartmentIdCanBeNull.Designer.cs">
+      <DependentUpon>201611061128512_MakeHeadDepartmentIdCanBeNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611061135094_MakeNameAndCodeInDepartmentRequired.cs" />
+    <Compile Include="Migrations\201611061135094_MakeNameAndCodeInDepartmentRequired.Designer.cs">
+      <DependentUpon>201611061135094_MakeNameAndCodeInDepartmentRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611061149292_MakeDirectionIdInDepartmentOptional.cs" />
+    <Compile Include="Migrations\201611061149292_MakeDirectionIdInDepartmentOptional.Designer.cs">
+      <DependentUpon>201611061149292_MakeDirectionIdInDepartmentOptional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611061158104_AddDepartmentDirection.cs" />
+    <Compile Include="Migrations\201611061158104_AddDepartmentDirection.Designer.cs">
+      <DependentUpon>201611061158104_AddDepartmentDirection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\DepartmentDirection.cs" />
     <Compile Include="Models\Direction.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\Group.cs" />
@@ -101,6 +133,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611041347259_AddSemesters.resx">
       <DependentUpon>201611041347259_AddSemesters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611061022146_ChangePerson.resx">
+      <DependentUpon>201611061022146_ChangePerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611061128512_MakeHeadDepartmentIdCanBeNull.resx">
+      <DependentUpon>201611061128512_MakeHeadDepartmentIdCanBeNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611061135094_MakeNameAndCodeInDepartmentRequired.resx">
+      <DependentUpon>201611061135094_MakeNameAndCodeInDepartmentRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611061149292_MakeDirectionIdInDepartmentOptional.resx">
+      <DependentUpon>201611061149292_MakeDirectionIdInDepartmentOptional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611061158104_AddDepartmentDirection.resx">
+      <DependentUpon>201611061158104_AddDepartmentDirection.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

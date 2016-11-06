@@ -17,14 +17,7 @@ namespace CuratorJournal.DataBase.Models
         
         [Display(Name = "список выпускающих кафедр")]
         [InverseProperty("Direction")]
-        public virtual List<Department> Departments { get; set; }
+        public virtual List<DepartmentDirection> DepartmentDirections { get; set; }
 
-        [Display(Name = "Квалификация")]
-        #region Qualification
-        public Qualification Qualification { get; set; }
-
-        [ForeignKey("Qualification")]
-        public long QualificationId { get; set; }
-        #endregion
     }
 }

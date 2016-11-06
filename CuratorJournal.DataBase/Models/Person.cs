@@ -3,14 +3,24 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CuratorJournal.DataBase.Models
 {
+    [Table("Persons")]
     public class Person
     {
         [Key]
         public long Id { get; set; }
 
-        [Display(Name="ФИО")]
-        public string FIO { get; set; }
+        [Required]
+        [Display(Name="Имя")]
+        public string FirstName { get; set; }
 
+        [Required]
+        [Display(Name = "Фамилия")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Отчество")]
+        public string MiddleName { get; set; }
+
+        [Required]
         [Display(Name="степень")]
         public string Rank { get; set; }
         
@@ -20,6 +30,15 @@ namespace CuratorJournal.DataBase.Models
 
         [ForeignKey("User")]
         public long UsereId { get; set; }
+        #endregion
+
+        [Required]
+        [Display(Name = "Кафедра")]
+        #region Department
+        public virtual Department Department { get; set; }
+
+        [ForeignKey("Department")]
+        public long DepartmentId { get; set; }
         #endregion
     }
 }
