@@ -35,10 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
-      <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -110,38 +106,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="NavigationHelper\INavigation.cs" />
+    <Compile Include="NavigationHelper\Navigation.cs" />
     <Compile Include="ViewModel\RedirectMessageViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
+    <Compile Include="View\AdministratorMainPage.xaml.cs">
+      <DependentUpon>AdministratorMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RedirectMessage.xaml.cs">
       <DependentUpon>RedirectMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\AdministratorMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Autorization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="adjunct\System\ComponentModel\Composition\CatalogService.cs" />
-    <Compile Include="adjunct\System\ComponentModel\Composition\ExportFactory.cs" />
-    <Compile Include="adjunct\System\ComponentModel\Composition\ExportLifetimeContext.cs" />
-    <Compile Include="adjunct\System\ComponentModel\Composition\ICatalogService.cs" />
-    <Compile Include="adjunct\System\ComponentModel\Composition\IoC.cs" />
-    <Compile Include="adjunct\System\ComponentModel\Composition\IoCDebugger.cs" />
-    <Compile Include="adjunct\System\ComponentModel\Composition\XapCatalog.cs" />
-    <Compile Include="adjunct\System\ComponentModel\Composition\XapPackage.cs" />
-    <Compile Include="adjunct\System\ComponentModel\Composition\XElementExportProvider.cs" />
-    <Compile Include="adjunct\System\Threading\Lock.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\PasswordBehavior.cs" />
-    <Compile Include="Common\Security.cs" />
     <Compile Include="ViewModel\AutorizationViewModel.cs" />
     <Compile Include="View\Autorization.xaml.cs">
       <DependentUpon>Autorization.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\RedirectMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

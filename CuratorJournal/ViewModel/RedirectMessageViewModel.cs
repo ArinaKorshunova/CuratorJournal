@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using CuratorJournal.NavigationHelper;
 using CuratorJournal.View;
 using Microsoft.Practices.Prism.Commands;
 
@@ -56,10 +57,9 @@ namespace CuratorJournal.ViewModel
         private async void PageLoaded()
         {
             await Task.Delay(TimeShow);
-
-            NavigationWindow win = (NavigationWindow)Application.Current.MainWindow;
-            win.Content = RedirectObject;
-            win.Show();
+            
+            Navigation navigate = new Navigation();
+            navigate.NavigateTo(RedirectObject);
         }
 
         #endregion
