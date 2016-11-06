@@ -10,6 +10,7 @@ namespace CuratorJournal.DataBase.Models
         public static readonly Role HeadOfDepartment = new Role { Id = 2, Name = "HeadOfDepartment", RussianName = "Зав. кафедрой" };
         public static readonly Role Teacher = new Role { Id = 3, Name = "Teacher", RussianName = "Преподаватель" };
         public static readonly Role Guest = new Role { Id = 4, Name = "Guest", RussianName = "Гость" };
+        public static readonly Role Administrator = new Role { Id = 5, Name = "Administrator", RussianName = "Администратор" };
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

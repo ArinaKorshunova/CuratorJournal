@@ -4,6 +4,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using CuratorJournal.DataBase.Models;
+using CuratorJournal.Logic.EnumWork;
+using CuratorJournal.Logic.PasswordSecurity;
+using CuratorJournal.NavigationHelper;
 using CuratorJournal.View;
 using Microsoft.Practices.Prism.Commands;
 
@@ -84,14 +87,22 @@ namespace CuratorJournal.ViewModel
         {
             if (!String.IsNullOrEmpty(Login) && !String.IsNullOrEmpty(Password))
             {
-                User user = DbContext.Users.FirstOrDefault(x => x.Login == Login && x.Password == Password);
-                if (user != null)
+                User user = DbContext.Users.SingleOrDefault(x => x.Login == Login);
+                if (user != null && Security.Verify(Password, user.Password))
                 {
-                    ErrorMessage = null;
+                    Navigation navigate = new Navigation();
+                    if (user.UserRoles.Any(x => x.Role.Is(Role.Administrator)))
+                    {
+                        navigate.NavigateTo(new AdministratorMainPage());
+                    }
+                    else
+                    {
+                        navigate.NavigateTo(new MainPage());
+                    }
                 }
                 else
                 {
-                    ErrorMessage = "Пользователя с таким логином или паролем не существует";
+                    ErrorMessage = "Не верный логин или пароль";
                 }
             }
             else
@@ -103,9 +114,8 @@ namespace CuratorJournal.ViewModel
 
         private void Registration()
         {
-            NavigationWindow win = (NavigationWindow)Application.Current.MainWindow;
-            win.Content = new Registration();
-            win.Show();
+            Navigation navigate = new Navigation();
+            navigate.NavigateTo(new Registration());
         }
         #endregion
     }

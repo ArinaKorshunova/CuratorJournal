@@ -1,4 +1,4 @@
-﻿namespace CuratorJournal.Common
+﻿namespace CuratorJournal.Logic.PasswordSecurity
 {
     public static class Security
     {

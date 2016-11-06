@@ -6,6 +6,8 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using CuratorJournal.Common;
 using CuratorJournal.DataBase.Models;
+using CuratorJournal.Logic.PasswordSecurity;
+using CuratorJournal.NavigationHelper;
 using CuratorJournal.View;
 using Microsoft.Practices.Prism.Commands;
 
@@ -160,11 +162,10 @@ namespace CuratorJournal.ViewModel
 
                         dbContextTransaction.Commit();
                     }
-                    NavigationWindow win = (NavigationWindow) Application.Current.MainWindow;
-                    win.DataContext = new RedirectMessageViewModel("Регистрация прошла успешно", 1000,
-                        new Autorization());
-                    win.Content = new RedirectMessage();
-                    win.Show();
+
+                    Navigation navigate = new Navigation();
+                    navigate.NavigateTo(new RedirectMessage(), new RedirectMessageViewModel("Регистрация прошла успешно", 1000,
+                        new Autorization()));
                 }
                 catch (Exception ex)
                 {
@@ -181,9 +182,8 @@ namespace CuratorJournal.ViewModel
 
         private void Cancel()
         {
-            NavigationWindow win = (NavigationWindow)Application.Current.MainWindow;
-            win.Content = new Autorization();
-            win.Show();
+            Navigation navigate = new Navigation();
+            navigate.NavigateTo(new Autorization());
         }
         #endregion
 
