@@ -14,7 +14,7 @@ namespace CuratorJournal.DataBase.Models
         [Required]
         [Display(Name="Название")]
         public string Name { get; set; }
-
+        
         [Required]
         [Display(Name = "Код")]
         public string Code { get; set; }
@@ -26,6 +26,23 @@ namespace CuratorJournal.DataBase.Models
         [ForeignKey("HeadDepartment")]
         public long? HeadDepartmentId { get; set; }
         #endregion
+
+        [Display(Name = "Декан")]
+        #region Dean
+        public virtual Person Dean { get; set; }
+
+        [ForeignKey("Dean")]
+        public long? DeanId { get; set; }
+        #endregion
+
+        [Display(Name = "Адрес")]
+        public string Address { get; set; }
+
+        [Display(Name = "Номер телефона")]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "Почтовая информация")]
+        public string PostInformation { get; set; }
 
         [Display(Name = "список направлений кафедры")]
         [InverseProperty("Department")]
