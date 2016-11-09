@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 using CuratorJournal.DataBase.Models;
 using CuratorJournal.Logic.EnumWork;
 using CuratorJournal.Logic.PasswordSecurity;
@@ -90,14 +89,13 @@ namespace CuratorJournal.ViewModel
                 User user = DbContext.Users.SingleOrDefault(x => x.Login == Login);
                 if (user != null && Security.Verify(Password, user.Password))
                 {
-                    Navigation navigate = new Navigation();
                     if (user.UserRoles.Any(x => x.Role.Is(Role.Administrator)))
                     {
-                        navigate.NavigateTo(new AdministratorMainPage());
+                        Navigation.NavigateTo(new AdministratorMainPage());
                     }
                     else
                     {
-                        navigate.NavigateTo(new MainPage());
+                        Navigation.NavigateTo(new MainPage());
                     }
                 }
                 else
@@ -114,8 +112,7 @@ namespace CuratorJournal.ViewModel
 
         private void Registration()
         {
-            Navigation navigate = new Navigation();
-            navigate.NavigateTo(new Registration());
+            Navigation.NavigateTo(new Registration());
         }
         #endregion
     }

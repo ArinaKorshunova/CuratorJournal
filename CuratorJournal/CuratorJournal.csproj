@@ -106,8 +106,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="NavigationHelper\INavigation.cs" />
     <Compile Include="NavigationHelper\Navigation.cs" />
+    <Compile Include="ViewModel\AdministratorMainPageViewModel.cs" />
     <Compile Include="ViewModel\RedirectMessageViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
     <Compile Include="View\AdministratorMainPage.xaml.cs">

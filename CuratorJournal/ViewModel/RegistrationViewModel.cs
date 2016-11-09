@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-using CuratorJournal.Common;
 using CuratorJournal.DataBase.Models;
 using CuratorJournal.Logic.PasswordSecurity;
 using CuratorJournal.NavigationHelper;
@@ -162,9 +160,8 @@ namespace CuratorJournal.ViewModel
 
                         dbContextTransaction.Commit();
                     }
-
-                    Navigation navigate = new Navigation();
-                    navigate.NavigateTo(new RedirectMessage(), new RedirectMessageViewModel("Регистрация прошла успешно", 1000,
+                    
+                    Navigation.NavigateTo(new RedirectMessage(), new RedirectMessageViewModel("Регистрация прошла успешно", 1000,
                         new Autorization()));
                 }
                 catch (Exception ex)
@@ -182,8 +179,7 @@ namespace CuratorJournal.ViewModel
 
         private void Cancel()
         {
-            Navigation navigate = new Navigation();
-            navigate.NavigateTo(new Autorization());
+            Navigation.NavigateTo(new Autorization());
         }
         #endregion
 

@@ -44,7 +44,6 @@ namespace CuratorJournal.DataBase.Models
             modelBuilder.Entity<Group>().HasRequired(x => x.Department).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<UserRole>().HasRequired(x => x.User).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<UserRole>().HasRequired(x => x.Role).WithMany().WillCascadeOnDelete(false);
-            modelBuilder.Entity<Person>().HasRequired(x => x.User).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<Person>().HasRequired(x => x.Department).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<StudentHabitation>().HasRequired(x => x.Student).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<StudentInformation>().HasRequired(x => x.Student).WithMany().WillCascadeOnDelete(false);

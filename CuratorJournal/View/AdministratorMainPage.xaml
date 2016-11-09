@@ -5,10 +5,75 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CuratorJournal.View"
       mc:Ignorable="d" 
+      xmlns:viewmodel="clr-namespace:CuratorJournal.ViewModel"
       d:DesignHeight="300" d:DesignWidth="300"
       Title="AdministratorMainPage">
+    <Page.DataContext>
+        <viewmodel:AdministratorMainPageViewModel/>
+    </Page.DataContext>
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="Главная страница администратора" FontSize="30"></TextBlock>
+    <Page.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </Page.Resources>
+
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="30" Text="Факультеты" Margin="15, 5"></TextBlock>
+        <WrapPanel>
+            
+        </WrapPanel>
+
+        <ListView ItemsSource="{Binding HeadDepartments}" SelectedItem="{Binding SelectedHeadDepartment}" BorderBrush="Transparent" Grid.Row="2" 
+                  HorizontalAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2" Margin="10">
+                        <Grid Margin="5"  HorizontalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Title}" FontSize="20"/>
+                            <WrapPanel Grid.Row="1">
+                                <Label Content="Декан: "/>
+                                <TextBlock Text="{Binding Dean.NameAndRank}"></TextBlock>
+                            </WrapPanel>
+                            <WrapPanel Grid.Row="2">
+                                <Label Content="Расположение: "/>
+                                <TextBlock Text="{Binding Address}"></TextBlock>
+                            </WrapPanel>
+                            <WrapPanel Grid.Row="3">
+                                <Label Content="Телефон: "/>
+                                <TextBlock Text="{Binding PhoneNumber}"></TextBlock>
+                            </WrapPanel>
+                            <WrapPanel Grid.Row="4">
+                                <Label Content="Почтовый адрес: "/>
+                                <TextBlock Text="{Binding PostInformation}"></TextBlock>
+                            </WrapPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
     </Grid>
 </Page>

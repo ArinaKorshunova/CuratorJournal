@@ -96,6 +96,10 @@
     <Compile Include="Migrations\201611091905371_AddDataToDepartment.Designer.cs">
       <DependentUpon>201611091905371_AddDataToDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611091916591_MakeUserForPersonOptional.cs" />
+    <Compile Include="Migrations\201611091916591_MakeUserForPersonOptional.Designer.cs">
+      <DependentUpon>201611091916591_MakeUserForPersonOptional.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\Department.cs" />
@@ -155,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611091905371_AddDataToDepartment.resx">
       <DependentUpon>201611091905371_AddDataToDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611091916591_MakeUserForPersonOptional.resx">
+      <DependentUpon>201611091916591_MakeUserForPersonOptional.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

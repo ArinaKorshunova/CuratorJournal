@@ -58,8 +58,7 @@ namespace CuratorJournal.ViewModel
         {
             await Task.Delay(TimeShow);
             
-            Navigation navigate = new Navigation();
-            navigate.NavigateTo(RedirectObject);
+            Navigation.NavigateTo(RedirectObject);
         }
 
         #endregion

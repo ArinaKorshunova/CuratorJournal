@@ -29,7 +29,7 @@ namespace CuratorJournal.DataBase.Models
         public virtual User User { get; set; }
 
         [ForeignKey("User")]
-        public long UsereId { get; set; }
+        public long? UsereId { get; set; }
         #endregion
 
         [Required]
@@ -40,5 +40,10 @@ namespace CuratorJournal.DataBase.Models
         [ForeignKey("Department")]
         public long DepartmentId { get; set; }
         #endregion
+
+        [NotMapped]
+        public string NameAndRank {
+            get { return string.Format("{0} {1} {2} ({3})", LastName, FirstName, MiddleName, Rank); }
+        }
     }
 }
