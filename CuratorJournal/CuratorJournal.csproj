@@ -193,6 +193,33 @@
   <ItemGroup>
     <Folder Include="Model\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrows\right-arrow-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrows\left-arrow-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrows\down-arrow-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrows\back.png" />
+    <Resource Include="Images\arrows\download-1.png" />
+    <Resource Include="Images\arrows\forward-1.png" />
+    <Resource Include="Images\arrows\upward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\management\writer-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dialogue-assets\letter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dialogue-assets\phone-5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dialogue-assets\phone.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

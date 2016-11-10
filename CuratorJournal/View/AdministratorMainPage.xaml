@@ -31,8 +31,9 @@
         </Grid.RowDefinitions>
 
         <TextBlock FontSize="30" Text="Факультеты" Margin="15, 5"></TextBlock>
-        <WrapPanel>
-            
+        <WrapPanel Grid.Row="1">
+            <Button MaxHeight="30" Margin="15, 5" Background="Transparent">
+                <Image Source="..\Images\management\writer-1.png"></Image></Button>
         </WrapPanel>
 
         <ListView ItemsSource="{Binding HeadDepartments}" SelectedItem="{Binding SelectedHeadDepartment}" BorderBrush="Transparent" Grid.Row="2" 
@@ -48,6 +49,10 @@
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding Title}" FontSize="20"/>
                             <WrapPanel Grid.Row="1">
                                 <Label Content="Декан: "/>
@@ -57,12 +62,12 @@
                                 <Label Content="Расположение: "/>
                                 <TextBlock Text="{Binding Address}"></TextBlock>
                             </WrapPanel>
-                            <WrapPanel Grid.Row="3">
-                                <Label Content="Телефон: "/>
+                            <WrapPanel Grid.Row="3" Margin="5, 0">
+                                <Image Source="..\Images\dialogue-assets\phone.png" Height="30" Margin="0"></Image>
                                 <TextBlock Text="{Binding PhoneNumber}"></TextBlock>
                             </WrapPanel>
-                            <WrapPanel Grid.Row="4">
-                                <Label Content="Почтовый адрес: "/>
+                            <WrapPanel Grid.Row="4" Margin="5, 0">
+                                <Image Source="..\Images\dialogue-assets\letter.png" Height="30" Margin="0"></Image>
                                 <TextBlock Text="{Binding PostInformation}"></TextBlock>
                             </WrapPanel>
                         </Grid>
