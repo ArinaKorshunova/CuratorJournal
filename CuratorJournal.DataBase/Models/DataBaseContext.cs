@@ -44,7 +44,7 @@ namespace CuratorJournal.DataBase.Models
             modelBuilder.Entity<Group>().HasRequired(x => x.Department).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<UserRole>().HasRequired(x => x.User).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<UserRole>().HasRequired(x => x.Role).WithMany().WillCascadeOnDelete(false);
-            modelBuilder.Entity<Person>().HasRequired(x => x.Department).WithMany().WillCascadeOnDelete(false);
+            modelBuilder.Entity<Person>().HasOptional(x => x.Department).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<StudentHabitation>().HasRequired(x => x.Student).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<StudentInformation>().HasRequired(x => x.Student).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<Student>().HasRequired(x => x.Gender).WithMany().WillCascadeOnDelete(false);
@@ -57,7 +57,7 @@ namespace CuratorJournal.DataBase.Models
             modelBuilder.Entity<DepartmentDirection>().HasRequired(x => x.Direction).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<DepartmentDirection>().HasRequired(x => x.Department).WithMany().WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Department>().Property(x => x.HeadDepartmentId).IsOptional();
+            modelBuilder.Entity<Department>().Property(x => x.MainDepartmentId).IsOptional();
         }
         
         public void DetectAndSaveChanges()

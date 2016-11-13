@@ -100,6 +100,18 @@
     <Compile Include="Migrations\201611091916591_MakeUserForPersonOptional.Designer.cs">
       <DependentUpon>201611091916591_MakeUserForPersonOptional.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611130946175_ChangePropertyInDepartment.cs" />
+    <Compile Include="Migrations\201611130946175_ChangePropertyInDepartment.Designer.cs">
+      <DependentUpon>201611130946175_ChangePropertyInDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611131200276_MakeDepartmentInPersonOptional.cs" />
+    <Compile Include="Migrations\201611131200276_MakeDepartmentInPersonOptional.Designer.cs">
+      <DependentUpon>201611131200276_MakeDepartmentInPersonOptional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611131211233_AddStoredProcedureFindPerson.cs" />
+    <Compile Include="Migrations\201611131211233_AddStoredProcedureFindPerson.Designer.cs">
+      <DependentUpon>201611131211233_AddStoredProcedureFindPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\Department.cs" />
@@ -162,6 +174,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611091916591_MakeUserForPersonOptional.resx">
       <DependentUpon>201611091916591_MakeUserForPersonOptional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611130946175_ChangePropertyInDepartment.resx">
+      <DependentUpon>201611130946175_ChangePropertyInDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611131200276_MakeDepartmentInPersonOptional.resx">
+      <DependentUpon>201611131200276_MakeDepartmentInPersonOptional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611131211233_AddStoredProcedureFindPerson.resx">
+      <DependentUpon>201611131211233_AddStoredProcedureFindPerson.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

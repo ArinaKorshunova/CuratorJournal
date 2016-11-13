@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="CuratorJournal.View.EditMainDepartment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CuratorJournal.View"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cmd ="http://www.galasoft.ch/mvvmlight"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="MinWidth" Value="150"/>
+            <Setter Property="Width" Value="auto"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </UserControl.Resources>
+    
+    
+    <Grid HorizontalAlignment="Stretch" Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="{Binding HeadDepartment.Title}" Grid.ColumnSpan="2" FontSize="20"/>
+        <Label Content="Название: " Grid.Row="1" />
+        <TextBox Text="{Binding HeadDepartment.Name}" Grid.Row="1" Grid.Column="1"></TextBox>
+        <Label Content="Сокращенное название: " Grid.Row="2"/>
+        <TextBox Text="{Binding HeadDepartment.Code}" Grid.Row="2" Grid.Column="1"></TextBox>
+        <Label Content="Телефон: " Grid.Row="3"/>
+        <TextBox Text="{Binding HeadDepartment.PhoneNumber}" Grid.Row="3" Grid.Column="1"></TextBox>
+        <Label Content="Расположение: " Grid.Row="4"/>
+        <TextBox Text="{Binding HeadDepartment.Address}" Grid.Row="4" Grid.Column="1"></TextBox>
+        <Label Content="Почтовый адрес: " Grid.Row="5"/>
+        <TextBox Text="{Binding HeadDepartment.PostInformation}" Grid.Row="5" Grid.Column="1"></TextBox>
+
+        <Label Content="Декан факультета: " Grid.Row="6"/>
+        <StackPanel Orientation="Horizontal"  Grid.Row="6" Grid.Column="1" Margin="0" >
+            <ComboBox Name="DeanName" SelectedItem="{Binding SelectedDean}" MinWidth="150" Text="{Binding DeanSearchString}" ItemsSource="{Binding Persons}" Margin="10, 5" FontSize="14" IsEditable="True"
+                  DisplayMemberPath="NameAndRank">
+            </ComboBox>
+            <TextBox Text="{Binding ElementName=DeanName, Path=Text, UpdateSourceTrigger=PropertyChanged}" Visibility="Collapsed">
+                <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <cmd:EventToCommand Command="{Binding DeanSearchStringChangedCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+            </TextBox>
+            <Button HorizontalAlignment="Right" MaxHeight="30" Margin="10" Background="Transparent" Command="{Binding AddDeanCommand}">
+                <Image Source="..\Images\management\jean_victor_balin_add.png"/>
+            </Button>
+        </StackPanel>
+        
+
+
+        <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="7"> 
+            <Button Content="Сохранить" Command="{Binding SaveCommand}" Margin="10" Padding="5"></Button>
+            <Button Content="Отменить" Command="{Binding CancelCommand}" Margin="10" Padding="5"></Button>
+        </WrapPanel>
+    </Grid>
+</UserControl>

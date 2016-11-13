@@ -31,14 +31,13 @@ namespace CuratorJournal.DataBase.Models
         [ForeignKey("User")]
         public long? UsereId { get; set; }
         #endregion
-
-        [Required]
+        
         [Display(Name = "Кафедра")]
         #region Department
         public virtual Department Department { get; set; }
 
         [ForeignKey("Department")]
-        public long DepartmentId { get; set; }
+        public long? DepartmentId { get; set; }
         #endregion
 
         [NotMapped]

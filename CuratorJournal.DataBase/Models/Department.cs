@@ -21,18 +21,21 @@ namespace CuratorJournal.DataBase.Models
         
         [Display(Name = "Факультет")]
         #region HeadDepartment
-        public virtual Department HeadDepartment { get; set; }
+        public virtual Department MainDepartment { get; set; }
         
-        [ForeignKey("HeadDepartment")]
-        public long? HeadDepartmentId { get; set; }
+        [ForeignKey("MainDepartment")]
+        public long? MainDepartmentId { get; set; }
         #endregion
 
-        [Display(Name = "Декан")]
-        #region Dean
-        public virtual Person Dean { get; set; }
+        [Display(Name = "список кафедр")]
+        public virtual List<Department> ChildDepartments { get; set; }
 
-        [ForeignKey("Dean")]
-        public long? DeanId { get; set; }
+        [Display(Name = "Декан/завкафедры")]
+        #region Dean
+        public virtual Person HeadOfDepartment { get; set; }
+
+        [ForeignKey("HeadOfDepartment")]
+        public long? HeadOfDepartmentId { get; set; }
         #endregion
 
         [Display(Name = "Адрес")]

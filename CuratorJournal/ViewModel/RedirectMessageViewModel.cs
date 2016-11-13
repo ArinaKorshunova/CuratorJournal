@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 using CuratorJournal.NavigationHelper;
-using CuratorJournal.View;
 using Microsoft.Practices.Prism.Commands;
 
 namespace CuratorJournal.ViewModel

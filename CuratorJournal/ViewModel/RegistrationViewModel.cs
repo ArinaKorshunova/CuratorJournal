@@ -105,7 +105,7 @@ namespace CuratorJournal.ViewModel
         public RegistrationViewModel()
         {
             DbContext = new DataBaseContext();
-            Departments = DbContext.Departments.Where(x => x.HeadDepartmentId != null).OrderBy(x => x.Code).ToList();
+            Departments = DbContext.Departments.Where(x => x.MainDepartmentId != null).OrderBy(x => x.Code).ToList();
             Person = new Person();
             OkCommand = new DelegateCommand(Register);
             CancelCommand = new DelegateCommand(Cancel);

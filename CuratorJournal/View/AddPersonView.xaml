@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="CuratorJournal.View.AddPersonView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CuratorJournal.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="MinWidth" Value="150"/>
+            <Setter Property="Width" Value="auto"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </UserControl.Resources>
+
+
+    <Grid HorizontalAlignment="Stretch" Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Новый пользователь" FontSize="20" Grid.ColumnSpan="2"/>
+
+        <TextBlock TextWrapping="Wrap" Text="{Binding ErrorMessage}" Grid.Row="1" Grid.ColumnSpan="2" Foreground="Red" FontSize="12" Height="auto" Margin="0, 10"></TextBlock>
+
+        <Label Content="Фамилия: " Grid.Row="2" />
+        <TextBox Text="{Binding NewPerson.LastName}" Grid.Row="2" Grid.Column="1"></TextBox>
+        <Label Content="Имя: " Grid.Row="3"/>
+        <TextBox Text="{Binding NewPerson.FirstName}" Grid.Row="3" Grid.Column="1"></TextBox>
+        <Label Content="Отчество: " Grid.Row="4"/>
+        <TextBox Text="{Binding NewPerson.MiddleName}" Grid.Row="4" Grid.Column="1"></TextBox>
+        <Label Content="Степень/звание: " Grid.Row="5"/>
+        <TextBox Text="{Binding NewPerson.Rank}" Grid.Row="5" Grid.Column="1"></TextBox>
+
+        <Grid Visibility="{Binding DepartmentVisibility}" Grid.Row="6" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Кафедра:" VerticalAlignment="Center" ></Label>
+            <ComboBox Grid.Column="1" Margin="10" Padding="5" Height="auto" MinHeight="25" ItemsSource="{Binding Departments}"
+                  SelectedItem="{Binding SelectedDepartment}" DisplayMemberPath="Title" SelectedIndex="0"></ComboBox>
+
+        </Grid>
+
+        <Grid Visibility="{Binding UserVisibility}" Grid.Row="7" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Степень/звание: "/>
+            <TextBox Text="{Binding NewPerson.Rank}" Grid.Column="1"></TextBox>
+            <Label Content="Степень/звание: " Grid.Row="1"/>
+            <TextBox Text="{Binding NewPerson.Rank}" Grid.Row="1" Grid.Column="1"></TextBox>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <Button Content="Сохранить" Margin="10" Padding="5"></Button>
+            <Button Content="Отмена" Margin="10" Padding="5"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
