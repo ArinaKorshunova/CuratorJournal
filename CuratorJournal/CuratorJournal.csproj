@@ -147,6 +147,10 @@
     <Compile Include="View\MainDepartmentDetails.xaml.cs">
       <DependentUpon>MainDepartmentDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MainGuestPage.xaml.cs">
+      <DependentUpon>MainGuestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MainGuestViewModel.cs" />
     <Compile Include="View\RedirectMessage.xaml.cs">
       <DependentUpon>RedirectMessage.xaml</DependentUpon>
     </Compile>
@@ -183,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainDepartmentDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainGuestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

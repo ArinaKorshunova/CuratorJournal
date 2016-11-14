@@ -15,6 +15,9 @@ namespace CuratorJournal.DataBase.Models
         [Display(Name = "Шифр")]
         public string Cipher { get; set; }
 
+        [Display(Name = "Название")]
+        public string GroupName { get; set; }
+
         [Display(Name = "Куратор")]
         #region Curator
         public virtual Person Сurator { get; set; }

@@ -51,5 +51,8 @@ namespace CuratorJournal.DataBase.Models
         public long GroupId { get; set; }
         #endregion
 
+        [NotMapped]
+        public string NameAndPhone { get { return string.Format("{0} ({1})", FIO, Phone); } }
+
     }
 }

@@ -39,7 +39,6 @@ namespace CuratorJournal.DataBase.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Group>().HasRequired(x => x.HeadOfDepartment).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<Group>().HasRequired(x => x.Сurator).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<Group>().HasRequired(x => x.Department).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<UserRole>().HasRequired(x => x.User).WithMany().WillCascadeOnDelete(false);

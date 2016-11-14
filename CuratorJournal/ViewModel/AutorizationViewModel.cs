@@ -89,13 +89,14 @@ namespace CuratorJournal.ViewModel
                 User user = DbContext.Users.SingleOrDefault(x => x.Login == Login);
                 if (user != null && Security.Verify(Password, user.Password))
                 {
+                    Properties.Settings.Default.UserName = user.Login;
                     if (user.UserRoles.Any(x => x.Role.Is(Role.Administrator)))
                     {
                         Navigation.NavigateTo(new AdministratorMainPage());
                     }
                     else
                     {
-                        Navigation.NavigateTo(new MainPage());
+                        Navigation.NavigateTo(new MainGuestPage());
                     }
                 }
                 else

@@ -44,5 +44,11 @@ namespace CuratorJournal.DataBase.Models
         public string NameAndRank {
             get { return string.Format("{0} {1} {2} ({3})", LastName, FirstName, MiddleName, Rank); }
         }
+
+        [NotMapped]
+        public string Name
+        {
+            get { return string.Format("{0} {1} {2}", LastName, FirstName, MiddleName); }
+        }
     }
 }
