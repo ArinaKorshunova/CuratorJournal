@@ -135,6 +135,9 @@
     <Compile Include="View\AddPersonView.xaml.cs">
       <DependentUpon>AddPersonView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AddStudentView.xaml.cs">
+      <DependentUpon>AddStudentView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdministratorMainPage.xaml.cs">
       <DependentUpon>AdministratorMainPage.xaml</DependentUpon>
     </Compile>
@@ -157,7 +160,14 @@
     <Compile Include="View\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ScheduleView.xaml.cs">
+      <DependentUpon>ScheduleView.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\AddPersonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddStudentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,6 +213,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ScheduleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
