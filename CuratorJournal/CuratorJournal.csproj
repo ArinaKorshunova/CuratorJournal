@@ -122,12 +122,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\BindableSelectedItemBehavior.cs" />
+    <Compile Include="Common\BooleanToStringValueConverter.cs" />
+    <Compile Include="Common\BoolInverterConverter.cs" />
     <Compile Include="NavigationHelper\Navigation.cs" />
     <Compile Include="ViewModel\AddPersonViewModel.cs" />
+    <Compile Include="ViewModel\AddStudentViewModel.cs" />
     <Compile Include="ViewModel\AdministratorMainPageViewModel.cs" />
     <Compile Include="ViewModel\ChildDepartmentViewModel.cs" />
     <Compile Include="ViewModel\EditMainDepartmentViewModel.cs" />
     <Compile Include="ViewModel\MainDepartmentViewModel.cs" />
+    <Compile Include="ViewModel\MainTeacherCuratorViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RedirectMessageViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
@@ -154,6 +158,9 @@
       <DependentUpon>MainGuestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainGuestViewModel.cs" />
+    <Compile Include="View\MainTeachetCuratorPage.xaml.cs">
+      <DependentUpon>MainTeachetCuratorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RedirectMessage.xaml.cs">
       <DependentUpon>RedirectMessage.xaml</DependentUpon>
     </Compile>
@@ -207,6 +214,10 @@
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainTeachetCuratorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RedirectMessage.xaml">
       <SubType>Designer</SubType>

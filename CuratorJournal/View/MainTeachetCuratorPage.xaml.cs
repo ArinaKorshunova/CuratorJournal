@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CuratorJournal.View
 {
     /// <summary>
-    /// Interaction logic for AddStudentView.xaml
+    /// Interaction logic for MainTeachetCuratorPage.xaml
     /// </summary>
-    public partial class AddStudentView : UserControl
+    public partial class MainTeachetCuratorPage : Page
     {
-        public AddStudentView()
+        public MainTeachetCuratorPage()
         {
             InitializeComponent();
         }

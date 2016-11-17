@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using CuratorJournal.Logic.EnumWork;
+using System.Collections.Generic;
 
 namespace CuratorJournal.DataBase.Models
 {
@@ -14,10 +15,27 @@ namespace CuratorJournal.DataBase.Models
         public static readonly Information Proforg = new Information { Id = 6, Name = "Proforg", RussianName = "Профорг" };
         public static readonly Information HasDebt = new Information { Id = 7, Name = "HasDebt", RussianName = "Имеет задолженности на начало семестра" };
 
+        public static List<Information> GetInformations()
+        {
+            List<Information> inf = new List<Information>();
+
+            inf.Add(Orphan);
+            inf.Add(Disabled);
+            inf.Add(AkademVacation);
+            inf.Add(PaidForm);
+            inf.Add(Praepostor);
+            inf.Add(Proforg);
+            inf.Add(HasDebt);
+
+            return inf;
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long Id { get; private set; }
         public string Name { get; private set; }
         public string RussianName { get; private set; }
+
+        [NotMapped]
+        public bool IsChecked { get; set; }
     }
 }

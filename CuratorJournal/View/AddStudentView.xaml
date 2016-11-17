@@ -1,15 +1,16 @@
-﻿<Page x:Class="CuratorJournal.View.AddStudentView"
+﻿<UserControl x:Class="CuratorJournal.View.AddStudentView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CuratorJournal.View"
-      mc:Ignorable="d"  Title="Журнал куратора"
+      xmlns:common="clr-namespace:CuratorJournal.Common"
+      mc:Ignorable="d"  
       d:DesignHeight="300" d:DesignWidth="300">
 
-    <Page.Resources>
+    <UserControl.Resources>
         <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Margin" Value="10"/>
@@ -17,29 +18,32 @@
             <Setter Property="Width" Value="auto"/>
         </Style>
         <Style TargetType="Label">
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Margin" Value="10"/>
         </Style>
         <Style TargetType="Button">
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="Margin" Value="10"/>
         </Style>
         <Style TargetType="RadioButton">
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Margin" Value="5"/>
         </Style>
         <Style TargetType="CheckBox">
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Margin" Value="5"/>
         </Style>
-    </Page.Resources>
+
+
+        <common:BoolInverterConverter x:Key="BoolInverterConverter"/>
+    </UserControl.Resources>
 
     <Grid>
         <StackPanel>
-            <Label Content="Карточка студента" FontSize="25" Margin="50, 20"/>
+            <Label Content="Карточка студента" FontSize="25" Margin="10"/>
 
             <Grid>
             <Grid.RowDefinitions>
@@ -53,8 +57,8 @@
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
-                <StackPanel  Margin="50, 20" Grid.ColumnSpan="2">
+
+                <StackPanel  Margin="10" Grid.ColumnSpan="2">
                     <Label Content="Данные студента: " FontSize="18" />
                     <Grid Width="500" >
                         <Grid.RowDefinitions>
@@ -75,35 +79,56 @@
                     </Grid>
                 </StackPanel>
 
-                <StackPanel Grid.Column="2" Margin="50, 20">
+                <StackPanel Grid.Column="2" Margin="10">
                     <Label Content="Поступление: " FontSize="18"/>
-                    <RadioButton GroupName="income" Content="Общий конкурс"  IsChecked="True"/>
-                    <RadioButton GroupName="income" Content="Целевой набор"/>
-                    <RadioButton GroupName="income" Content="Олимпиада" />
+                    <RadioButton GroupName="income" Content="Общий конкурс"  IsChecked="{Binding Student.IsGeneralCompetition}" />
+                    <RadioButton GroupName="income" Content="Целевой набор" IsChecked="{Binding Student.IsOlympiad}" />
+                    <RadioButton GroupName="income" Content="Олимпиада"  IsChecked="{Binding Student.IsTargetSet}" />
                 </StackPanel>
 
 
-                <StackPanel  Grid.Row="1" Margin="50, 20">
+                <StackPanel  Grid.Row="1" Margin="10">
                     <Label Content="Пол: " FontSize="18"/>
-                    <RadioButton GroupName="s" Content="Мужской"/>
-                    <RadioButton GroupName="s" Content="Женский"/>
+                    <RadioButton GroupName="s"  IsChecked="{Binding IsMale}" Content="Мужской" />
+                    <RadioButton GroupName="s"  Content="Женский" IsChecked="{Binding IsMale,Converter={StaticResource BoolInverterConverter}}" />
                 </StackPanel>
 
 
-                <StackPanel Grid.Row="1" Grid.Column="1" Margin="50, 20">
+                <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
                     <Label Content="Проживание: " FontSize="18"/>
-                    <CheckBox Content="г. Калуга"/>
+                    <ItemsControl ItemsSource="{Binding Path=Habitations}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding RussianName}" IsChecked="{Binding IsChecked}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!--<CheckBox Content="г. Калуга"/>
                     <CheckBox Content="Калужская область"/>
                     <CheckBox Content="Отдаленные регионы"/>
                     <CheckBox Content="Частный сектор"/>
                     <CheckBox Content="Общежитие"/>
-                    <CheckBox Content="Иностранец"/>
+                    <CheckBox Content="Иностранец"/>-->
                 </StackPanel>
 
 
-                <StackPanel Grid.Row="1"  Grid.Column="2" Margin="50, 20">
+                <StackPanel Grid.Row="1"  Grid.Column="2" Margin="10">
                     <Label Content="Сведения: " FontSize="18"/>
-                    <CheckBox Content="Сирота"/>
+
+                    <ItemsControl ItemsSource="{Binding Path=Informations}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsChecked}">
+                                    <TextBlock HorizontalAlignment="Left">
+                                            <AccessText TextWrapping="Wrap"  Text="{Binding RussianName}"/>
+                                    </TextBlock>
+                                </CheckBox>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!--<CheckBox Content="Сирота"/>
                     <CheckBox Content="Инвалид"/>
                     <CheckBox Content="Академ. отпуск"/>
                     <CheckBox Content="Платная форма"/>
@@ -113,15 +138,15 @@
                         <TextBlock HorizontalAlignment="Left">
                             <AccessText TextWrapping="Wrap"  Text="Имеется задолженность на начало семестра"/>
                         </TextBlock>
-                    </CheckBox>
+                    </CheckBox>-->
                 </StackPanel>
 
 
-                <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="50, 20" Grid.Row="3" Grid.ColumnSpan="3">
+                <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Grid.Row="3" Grid.ColumnSpan="3">
                     <Button Content="Сохранить" Margin="10" Padding="5"></Button>
                     <Button Content="Отмена" Margin="10" Padding="5"></Button>
                 </WrapPanel>
             </Grid>
         </StackPanel>
     </Grid>
-</Page>
+</UserControl>

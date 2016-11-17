@@ -94,10 +94,10 @@ namespace CuratorJournal.ViewModel
                     {
                         Navigation.NavigateTo(new AdministratorMainPage());
                     }
-                    if (user.UserRoles.Any(x => x.Role.Is(Role.Сurator)) ||
+                    else if (user.UserRoles.Any(x => x.Role.Is(Role.Сurator)) ||
                         user.UserRoles.Any(x => x.Role.Is(Role.Teacher)) )
                     {
-                        Navigation.NavigateTo(new AddStudentView());
+                        Navigation.NavigateTo(new MainTeachetCuratorPage());
                     }
                     else
                     {
