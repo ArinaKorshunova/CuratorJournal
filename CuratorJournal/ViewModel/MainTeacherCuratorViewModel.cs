@@ -1,4 +1,5 @@
 ﻿using CuratorJournal.DataBase.Models;
+using CuratorJournal.Logic.EnumWork;
 using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace CuratorJournal.ViewModel
     {
         public DataBaseContext DbContext { get; set; }
 
+        public bool IsUserCuratorOfGroup { get; set; }
         #region Свойсва зависимости
 
 
@@ -110,6 +112,17 @@ namespace CuratorJournal.ViewModel
             DependencyProperty.Register("AddStudentVM", typeof(AddStudentViewModel), typeof(MainTeacherCuratorViewModel), new PropertyMetadata(null));
 
 
+
+        public bool IsAddStudentEnable
+        {
+            get { return (bool)GetValue(IsAddStudentEnableProperty); }
+            set { SetValue(IsAddStudentEnableProperty, value); }
+        }
+        public static readonly DependencyProperty IsAddStudentEnableProperty =
+            DependencyProperty.Register("IsAddStudentEnable", typeof(bool), typeof(MainTeacherCuratorViewModel), new PropertyMetadata(null));
+
+
+
         #endregion
 
         #region Конструкторы
@@ -127,7 +140,10 @@ namespace CuratorJournal.ViewModel
             SelectedStudentCommand = new DelegateCommand(SelectStudent);
             AddStudentVM = new AddStudentViewModel();
             StudentVisible = Visibility.Hidden;
+            IsAddStudentEnable = false;
         }
+
+
 
         #endregion
 
@@ -147,6 +163,15 @@ namespace CuratorJournal.ViewModel
         {
             if (SelectedGroup != null)
             {
+                var currentPerson = DbContext.Persons.FirstOrDefault(x => x.User.Login == Properties.Settings.Default.UserName);
+                if (currentPerson != null && SelectedGroup.СuratorId == currentPerson.Id)
+                {
+                    IsAddStudentEnable = true;
+                }
+                else
+                {
+                    IsAddStudentEnable = false;
+                }
                 AddStudentVM = new AddStudentViewModel();
                 StudentVisible = Visibility.Hidden;
                 SelectedStudent = null;
@@ -156,7 +181,7 @@ namespace CuratorJournal.ViewModel
         private void SelectStudent() {
             if (SelectedStudent != null)
             {
-                AddStudentVM = new AddStudentViewModel(SelectedStudent.Id, Department.Id);
+                AddStudentVM = new AddStudentViewModel(SelectedStudent.Id, Department.Id, IsAddStudentEnable);
                 StudentVisible = Visibility.Visible;
             }
         }

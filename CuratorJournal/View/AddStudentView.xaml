@@ -142,9 +142,9 @@
                 </StackPanel>
 
 
-                <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Grid.Row="3" Grid.ColumnSpan="3">
-                    <Button Content="Сохранить" Margin="10" Padding="5"></Button>
-                    <Button Content="Отмена" Margin="10" Padding="5"></Button>
+                <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Grid.Row="3" Grid.ColumnSpan="3" Visibility="{Binding ButtonVisibility}">
+                    <Button Content="Сохранить" Margin="10" Padding="5" Command="{Binding SaveCommand}"></Button>
+                    <Button Content="Отмена" Margin="10" Padding="5" Command="{Binding CancelCommand}"></Button>
                 </WrapPanel>
             </Grid>
         </StackPanel>

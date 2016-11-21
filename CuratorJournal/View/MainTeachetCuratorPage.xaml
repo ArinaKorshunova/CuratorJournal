@@ -88,6 +88,8 @@
                   Width="2" Background="#423535" Height="Auto" />
 
         <local:AddStudentView DataContext="{Binding AddStudentVM}" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, 
-            AncestorType={x:Type Page}}, Path=DataContext.StudentVisible}" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            AncestorType={x:Type Page}}, Path=DataContext.StudentVisible}" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                              IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, 
+            AncestorType={x:Type Page}}, Path=DataContext.IsAddStudentEnable}"/>
     </Grid>
 </Page>

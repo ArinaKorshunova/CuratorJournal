@@ -17,11 +17,7 @@ namespace CuratorJournal.ViewModel
         public long DepartmentId { get; set; }
 
         #region Свойства зависимости
-
-
-
-
-
+        
         public Student Student
         {
             get { return (Student)GetValue(StudentProperty); }
@@ -84,6 +80,17 @@ namespace CuratorJournal.ViewModel
 
 
 
+
+        public Visibility ButtonVisibility
+        {
+            get { return (Visibility)GetValue(ButtonVisibilityProperty); }
+            set { SetValue(ButtonVisibilityProperty, value); }
+        }
+        public static readonly DependencyProperty ButtonVisibilityProperty =
+            DependencyProperty.Register("ButtonVisibility", typeof(Visibility), typeof(AddStudentViewModel), new PropertyMetadata(null));
+
+
+
         #endregion
 
         #region Конструкторы
@@ -95,7 +102,7 @@ namespace CuratorJournal.ViewModel
             IsMale = true;
         }
         
-        public AddStudentViewModel(long id, long departmentId)
+        public AddStudentViewModel(long id, long departmentId, bool isVisible)
         {
             Initial();
             Student = DbContext.Students.Find(id);
@@ -117,6 +124,9 @@ namespace CuratorJournal.ViewModel
                     }
                 }
             }
+
+
+            ButtonVisibility = isVisible ? Visibility.Visible : Visibility.Hidden;
         }
 
         public AddStudentViewModel(long departmentId)
@@ -136,14 +146,54 @@ namespace CuratorJournal.ViewModel
             CancelCommand = new DelegateCommand(Cancel);
             Habitations = Habitation.GetHabitations();
             Informations = Information.GetInformations();
+            ButtonVisibility = Visibility.Visible;
         }
 
         private void Save() {
             if(Student != null)
             {
-                if(Student.Id == 0)
+                if (!String.IsNullOrEmpty(Student.FIO) && !String.IsNullOrEmpty(Student.Phone) && !String.IsNullOrEmpty(Student.Email)
+                    && IsMale != null)
                 {
+                    for (int i = 0; i < Student.StudentHabitations.Count; i++)
+                    {
+                        var hh = DbContext.StudentHabitations.Find(Student.StudentHabitations[i].Id);
+                        if (hh != null)
+                        {
+                            DbContext.StudentHabitations.Remove(hh);
+                        }
+                    }
 
+                    for (int i = 0; i < Student.StudentInformations.Count; i++)
+                    {
+                        var ii = DbContext.StudentInformations.Find(Student.StudentInformations[i].Id);
+                        if (ii != null)
+                        {
+                            DbContext.StudentInformations.Remove(ii);
+                        }
+                    }
+                    DbContext.DetectAndSaveChanges();
+                    
+                    var checkedHab = Habitations.Where(x => x.IsChecked).ToList();
+                    foreach (var hab in checkedHab) {
+                        DbContext.StudentHabitations.Add(new StudentHabitation { HabitationId = hab.Id, StudentId = Student.Id });
+                        DbContext.DetectAndSaveChanges();
+                    }
+                    
+                    var checkedInf = Informations.Where(x => x.IsChecked).ToList();
+                    foreach (var inf in checkedInf)
+                    {
+                        DbContext.StudentInformations.Add(new StudentInformation { InformationId = inf.Id, StudentId = Student.Id });
+                        DbContext.DetectAndSaveChanges();
+                    }
+                    Student.GenderId = (bool)IsMale ? Gender.Male.Id : Gender.Female.Id;
+                    DbContext.Entry(Student).State = System.Data.Entity.EntityState.Modified;
+                    
+                    DbContext.DetectAndSaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Недостаточно данных для сохранения!");
                 }
             }
         }
