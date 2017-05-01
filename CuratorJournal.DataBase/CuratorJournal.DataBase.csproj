@@ -116,6 +116,10 @@
     <Compile Include="Migrations\201611141800300_AddGroupNameToGroup.Designer.cs">
       <DependentUpon>201611141800300_AddGroupNameToGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705011450449_SplitFIOInStudent.cs" />
+    <Compile Include="Migrations\201705011450449_SplitFIOInStudent.Designer.cs">
+      <DependentUpon>201705011450449_SplitFIOInStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\Department.cs" />
@@ -190,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611141800300_AddGroupNameToGroup.resx">
       <DependentUpon>201611141800300_AddGroupNameToGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705011450449_SplitFIOInStudent.resx">
+      <DependentUpon>201705011450449_SplitFIOInStudent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using CuratorJournal.DataBase.Models;
+using DepersonilizeData;
 using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.Generic;
@@ -99,7 +100,8 @@ namespace CuratorJournal.ViewModel
         private void SelectGroup() {
             if(SelectedGroup != null)
             {
-                Students = DbContext.Students.Where(x => x.GroupId == SelectedGroup.Id).ToList();
+                Depersonilize dep = new Depersonilize();
+                Students = dep.Undepersonilized(DbContext.Students.ToList()).Where(x => x.GroupId == SelectedGroup.Id).ToList();
             }
         }
         #endregion

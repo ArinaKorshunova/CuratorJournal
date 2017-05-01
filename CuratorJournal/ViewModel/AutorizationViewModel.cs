@@ -87,6 +87,7 @@ namespace CuratorJournal.ViewModel
             if (!String.IsNullOrEmpty(Login) && !String.IsNullOrEmpty(Password))
             {
                 User user = DbContext.Users.SingleOrDefault(x => x.Login == Login);
+                
                 if (user != null && Security.Verify(Password, user.Password))
                 {
                     Properties.Settings.Default.UserName = user.Login;

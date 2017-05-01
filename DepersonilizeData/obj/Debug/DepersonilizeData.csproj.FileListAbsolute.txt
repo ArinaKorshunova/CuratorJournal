@@ -1,0 +1,13 @@
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\bin\Debug\DepersonilizeData.dll
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\bin\Debug\DepersonilizeData.pdb
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\bin\Debug\CuratorJournal.DataBase.dll
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\bin\Debug\EntityFramework.dll
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\bin\Debug\CuratorJournal.Logic.dll
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\bin\Debug\BCrypt.Net.dll
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\bin\Debug\CuratorJournal.DataBase.pdb
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\bin\Debug\EntityFramework.xml
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\bin\Debug\CuratorJournal.Logic.pdb
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\bin\Debug\BCrypt.Net.xml
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\obj\Debug\DepersonilizeData.csprojResolveAssemblyReference.cache
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\obj\Debug\DepersonilizeData.dll
+E:\Работа\Полезности\ToGitHub\CuratorJournal\DepersonilizeData\obj\Debug\DepersonilizeData.pdb

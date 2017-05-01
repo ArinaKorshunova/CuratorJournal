@@ -9,8 +9,14 @@ namespace CuratorJournal.DataBase.Models
         [Key]
         public long Id { get; set; }
 
-        [Display(Name = "ФИО")]
-        public string FIO { get; set; }
+        [Display(Name = "Фамилия")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Имя")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Отчество")]
+        public string FatherName { get; set; }
 
         [Display(Name = "телефон")]
         public string Phone { get; set; }
@@ -54,5 +60,7 @@ namespace CuratorJournal.DataBase.Models
         [NotMapped]
         public string NameAndPhone { get { return string.Format("{0} ({1})", FIO, Phone); } }
 
+        [NotMapped]
+        public string FIO { get { return string.Format("{0} {1} {2}", LastName, FirstName, FatherName); } }
     }
 }

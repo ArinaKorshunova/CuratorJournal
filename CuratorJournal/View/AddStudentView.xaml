@@ -65,17 +65,23 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="ФИО "/>
-                        <TextBox Text="{Binding Student.FIO}" Grid.Column="1"></TextBox>
-                        <Label Content="Телефон: " Grid.Row="1"/>
-                        <TextBox Text="{Binding Student.Phone}" Grid.Column="1" Grid.Row="1"></TextBox>
-                        <Label Content="Email: " Grid.Row="2" />
-                        <TextBox Text="{Binding Student.Email}" Grid.Column="1" Grid.Row="2"></TextBox>
+                        <Label Content="Фамилия "/>
+                        <TextBox Text="{Binding Student.LastName}" Grid.Column="1"></TextBox>
+                        <Label Content="Имя: "  Grid.Row="1"/>
+                        <TextBox Text="{Binding Student.FirstName}" Grid.Row="1" Grid.Column="1"></TextBox>
+                        <Label Content="Отчество " Grid.Row="2"/>
+                        <TextBox Text="{Binding Student.FatherName}" Grid.Row="2" Grid.Column="1"></TextBox>
+                        <Label Content="Телефон: " Grid.Row="3"/>
+                        <TextBox Text="{Binding Student.Phone}" Grid.Column="1" Grid.Row="3"></TextBox>
+                        <Label Content="Email: " Grid.Row="4" />
+                        <TextBox Text="{Binding Student.Email}" Grid.Column="1" Grid.Row="4"></TextBox>
                     </Grid>
                 </StackPanel>
 

@@ -64,6 +64,12 @@
                 Height="2" 
                 BorderBrush="Black" 
                 BorderThickness="2" />
+            <WrapPanel Grid.Row="2" HorizontalAlignment="Left" Visibility="{Binding IsImportExporvVisible}">
+                <Button Content="Импорт" Margin="5, 10" Padding="5"></Button>
+                <Button Content="Экспорт" Margin="5, 10" Padding="5"  Command="{Binding ExportCommand}"></Button>
+            </WrapPanel>
+            
+                
             </StackPanel>
 
             <ListBox Grid.Row="2" ItemsSource="{Binding Students}" BorderBrush="Transparent" Margin="0" SelectedItem="{Binding SelectedStudent}">

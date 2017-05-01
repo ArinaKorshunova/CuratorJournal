@@ -1,5 +1,6 @@
 ﻿using CuratorJournal.DataBase.Models;
 using CuratorJournal.Logic.EnumWork;
+using DepersonilizeData;
 using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.Generic;
@@ -105,7 +106,9 @@ namespace CuratorJournal.ViewModel
         public AddStudentViewModel(long id, long departmentId, bool isVisible)
         {
             Initial();
-            Student = DbContext.Students.Find(id);
+
+            Depersonilize dep = new Depersonilize();
+            Student = dep.Undepersonilized(DbContext.Students.ToList()).FirstOrDefault(x => x.Id == id);
             if(Student != null)
             {
                 IsMale = Student.Gender.Is(Gender.Male);
